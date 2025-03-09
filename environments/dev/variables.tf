@@ -4,16 +4,7 @@ variable "credentials" {
   type        = string
   description = "Contenido JSON de la cuenta de servicio"
   sensitive   = true
-  default     = <<EOF
-{
-  "client_id": "764086051850-6qr4p6gpi6hn506pt8ejuq83di341hur.apps.googleusercontent.com",
-  "client_secret": "d-FL95Q19q7MQmFpd7hHD0Ty",
-  "quota_project_id": "synthaud",
-  "refresh_token": "1//05tlWxp8-OfNXCgYIARAAGAUSNwF-L9Ir2H_n4GfSg4AusLwfHrF9WIT-lUtb_O6Wa7b0h9YsNktJz5lE_fXQs_gJ86CZlIVPtSs",
-  "type": "authorized_user",
-  "universe_domain": "googleapis.com"
-}
-EOF
+  default     = ""
 }
 
 variable "project_id" {
