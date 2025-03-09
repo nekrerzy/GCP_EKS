@@ -3,7 +3,7 @@
 provider "google" {
   project     = var.project_id
   region      = var.region
-  #credentials = file("path/to/your/service-account-key.json")  # Optional: use this or gcloud auth
+  credentials = var.credentials
 }
 
 provider "kubernetes" {

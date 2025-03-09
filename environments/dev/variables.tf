@@ -1,5 +1,10 @@
 # environments/dev/variables.tf
 
+variable "credentials" {
+  description = "Service account credentials"
+  type        = map()
+}
+
 variable "project_id" {
   description = "GCP Project ID"
   type        = string
