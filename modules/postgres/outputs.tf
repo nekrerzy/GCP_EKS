@@ -17,5 +17,11 @@ output "postgres_instance_private_ip" {
 
 output "postgres_database_name" {
   description = "Nombre de la base de datos PostgreSQL"
-  value       = google_sql_database.database.name
+  value       = var.db_name
+}
+
+output "postgres_database_user" {
+  description = "Usuario de la base de datos PostgreSQL"
+  value       = var.db_user
+  
 }
