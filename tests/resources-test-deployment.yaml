@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: python-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python
+  template:
+    metadata:
+      labels:
+        app: python
+    spec:
+      serviceAccountName: app-ksa
+      containers:
+      - name: python
+        image: python:latest
+        command: ["/bin/bash", "-c", "--"]
+        args: ["while true; do sleep 3000; done;"]
