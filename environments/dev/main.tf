@@ -1,20 +1,13 @@
-# environments/dev/main.tf
-
 provider "google" {
   project     = var.project_id
   region      = var.region
-  credentials = var.credentials
+  #credentials = var.credentials
 }
 
 provider "kubernetes" {
   host                   = "https://${module.gke.cluster_endpoint}"
   token                  = data.google_client_config.default.access_token
   cluster_ca_certificate = module.gke.cluster_ca_certificate
-  exec {
-    api_version = "client.authentication.k8s.io/v1beta1"
-    command     = "true" # A simple command that always passes
-    args        = ["ignore this"]
-  }
 }
 
 data "google_client_config" "default" {}
@@ -123,7 +116,6 @@ module "redis" {
     google_service_account.app_service_account
   ]
 }
-
 
 module "cloud_dns" {
   source = "../../modules/cloud_dns"

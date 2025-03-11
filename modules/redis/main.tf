@@ -1,12 +1,12 @@
 # modules/redis/main.tf
 
-# Habilitar la API de Redis
+# Enable Redis API 
 resource "google_project_service" "redis_api" {
   service = "redis.googleapis.com"
   disable_on_destroy = false
 }
 
-# Instancia de Redis
+# Redis Instance
 resource "google_redis_instance" "cache" {
   name           = "${var.project_id}-${var.env}-redis"
   display_name   = "Redis Cache for ${var.env}"
@@ -18,19 +18,19 @@ resource "google_redis_instance" "cache" {
   
   redis_version = var.redis_version
   
-  # Configuración de replicas para producción
+  # Production environment requires a replica
   replica_count = var.env == "prod" ? var.replica_count : null
   
-  # Configuración de autorización
+  # Enable authentication
   auth_enabled = true
   
-  # Configuración de red privada
+  # Private network configuration
   authorized_network = var.vpc_id
   connect_mode       = "PRIVATE_SERVICE_ACCESS"
   
   depends_on = [google_project_service.redis_api]
   
-  # Para entorno de desarrollo, no usamos todas las características
+  # For development environment, we do not use all features
   redis_configs = var.env == "prod" ? {
     "maxmemory-policy" = "allkeys-lru"
     "notify-keyspace-events" = "KEA"
@@ -39,7 +39,7 @@ resource "google_redis_instance" "cache" {
   }
 }
 
-# Configuración de IAM para permitir que la cuenta de servicio acceda a Redis
+# IAM configuration to allow the service account to access Redis
 resource "google_project_iam_member" "redis_access" {
   project = var.project_id
   role    = "roles/redis.admin"

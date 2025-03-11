@@ -1,4 +1,3 @@
-# modules/vertex_ai/main.tf
 
 # Enable Vertex AI API
 resource "google_project_service" "vertex_ai" {

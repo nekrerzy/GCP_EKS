@@ -1,0 +1,33 @@
+# environments/dev/terraform.tfvars
+
+# credentials = <<EOF
+# {
+#     "client_id": "764086051850-6qr4p6gpi6hn506pt8ejuq83di341hur.apps.googleusercontent.com",
+#     "client_secret": "d-FL95Q19q7MQmFpd7hHD0Ty",
+#     "quota_project_id": "synthaud",
+#     "refresh_token": "1//05tlWxp8-OfNXCgYIARAAGAUSNwF-L9Ir2H_n4GfSg4AusLwfHrF9WIT-lUtb_O6Wa7b0h9YsNktJz5lE_fXQs_gJ86CZlIVPtSs",
+#     "type": "authorized_user",
+#     "universe_domain": "googleapis.com"
+# }
+# EOF
+
+project_id = "synthaud"
+region     = "us-central1"
+
+# Network configuration
+subnet_cidr  = "10.0.0.0/16"
+pod_cidr     = "10.1.0.0/16"
+service_cidr = "10.2.0.0/16"
+master_ipv4_cidr_block = "172.16.0.0/28"
+
+# Database configuration
+db_name     = "app-database"
+db_user     = "app-user"
+db_password = "lcA1Z+A82hjxckEz8MsA3g==" 
+
+# Spanner configuration
+spanner_db_name = "app-spanner-db"
+enable_spanner = false
+
+
+cluster_deletion_protection = false

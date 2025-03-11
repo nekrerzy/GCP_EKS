@@ -1,0 +1,32 @@
+
+# credentials = <<EOF
+# {
+#     "client_id": "",
+#     "client_secret": "",
+#     "quota_project_id": "",
+#     "refresh_token": "",
+#     "type": "",
+#     "universe_domain": ""
+# }
+# EOF
+
+# project_id = "synthaud"
+# region     = "us-central1"
+
+# Network configuration
+subnet_cidr  = "10.0.0.0/16"
+pod_cidr     = "10.1.0.0/16"
+service_cidr = "10.2.0.0/16"
+master_ipv4_cidr_block = "172.16.0.0/28"
+
+# Database configuration
+db_name     = "app-database"
+db_user     = "app-user"
+db_password = "lcA1Z+A82hjxckEz8MsA3g==" 
+
+# Spanner configuration
+spanner_db_name = "app-spanner-db"
+enable_spanner = false
+
+
+cluster_deletion_protection = false

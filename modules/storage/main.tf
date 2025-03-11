@@ -1,4 +1,3 @@
-# modules/storage/main.tf
 
 # Cloud Storage bucket for Vertex AI
 resource "google_storage_bucket" "vertex_bucket" {
